@@ -1,0 +1,8 @@
+section {
+  background-color: rgba(0, 0, 255, 0.1);
+  padding: 15px;
+}
+
+section section {
+  margin: 15px;
+}

@@ -1,25 +1,10 @@
-// import MyComponent from './components/my-component';
 import './App.css'
 import Monolithic from './components/monolithic';
+import ArticleAdd from './components/monolithic/article-add';
+import ArticleList from './components/monolithic/article-list';
 import Layout from './layout';
-// import MyButton from './components/my-button';
-// import DynamicText from './components/dynamic-text';
-// import MappedData from './components/mapped-data';
-// import ContainerPropElement from './containers/prop-elements';
-// import BasicState from './hooks/builtin/basic-state';
-// import ApiDataFetching from './hooks/builtin/api-data-fetching';
-// import CleanupTimerEffect from './hooks/builtin/cleanup-effects';
-// import ToggleCpmponent from './hooks/builtin/toggle-component';
-// import CounterDisplay from './hooks/custom/counter-display';
-// import CounterConsumer from './hooks/custom/counter-consumer';
-// import MyProvider from './hooks/builtin/contexts/my-context';
 
 function App() {
-  // const appState = {
-  //   btnText: 'Click',
-  //   items: ['First item', 'Second item', 'Third item'],
-  // };
-
   return (
     <>
       <section>
@@ -36,24 +21,33 @@ function App() {
 
           <Layout>
             <>
-              <Monolithic />
-              {/*<MyComponent />
-              <MyButton>My button text</MyButton>
-              <DynamicText />
-              <MappedData />
-              <ContainerPropElement
-                btnText={appState.btnText}
-                items={appState.items}
+              <Monolithic
+                addArticle={({
+                  title,
+                  summary,
+                  onChangeTitle,
+                  onChangeSummary,
+                  onClickAdd
+                }) => (
+                  <ArticleAdd
+                    name="Articles"
+                    title={title}
+                    summary={summary}
+                    onChangeTitle={onChangeTitle}
+                    onChangeSummary={onChangeSummary}
+                    onClickAdd={onClickAdd}
+                  />
+                )}
+                articleList={({
+                  articles,
+                  onClickRemove
+                }) => (
+                  <ArticleList
+                    articles={articles}
+                    onClickRemove={onClickRemove}
+                  />
+                )}
               />
-              <BasicState />
-              <ApiDataFetching />
-              <CleanupTimerEffect />
-              <ToggleCpmponent />
-
-              <MyProvider>
-                <CounterDisplay />
-                <CounterConsumer />
-              </MyProvider>*/}
             </>
           </Layout>
         </main>

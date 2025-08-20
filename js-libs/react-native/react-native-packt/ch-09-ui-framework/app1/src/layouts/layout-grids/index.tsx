@@ -19,11 +19,20 @@ const mainStyle = {
   padding: "8px 16px",
 };
 
-const Item = styled(Paper)(() => ({
+const ItemBlock = styled(Paper)(() => ({
+  // width: "100%",
+  height: "100%",
+  display: "block",
+  // alignItems: "center",
+  // justifyContent: "center",
+}));
+
+const ItemFlex = styled(Paper)(() => ({
+  width: "100%",
   height: "100%",
   display: "flex",
   alignItems: "center",
-  // justifyContent: "center",
+  justifyContent: "flex-start",
 }));
 
 type TypeLayoutGrids = {
@@ -61,7 +70,7 @@ export default function LayoutGrids() {
     <>
       <Grid container spacing={2} sx={{backgroundColor: "#F3F6F9"}}>
         <Grid size={{xs: 12}}>
-          <Item sx={headerFooterStyle}>
+          <ItemFlex sx={headerFooterStyle}>
             <IconButton
               aria-label="open-drawer-menu"
               onClick={toggleDrawer}
@@ -90,22 +99,22 @@ export default function LayoutGrids() {
             </Drawer>
 
             <Typography sx={mainStyle}>Header</Typography>
-          </Item>
+          </ItemFlex>
         </Grid>
         
         <Grid size={{xs: 2}}>
-          <Item>
+          <ItemFlex>
             <Stack spacing={1}>
               <Typography sx={mainStyle}>Nav item 1</Typography>
               <Typography sx={mainStyle}>Nav item 2</Typography>
               <Typography sx={mainStyle}>Nav item 3</Typography>
               <Typography sx={mainStyle}>Nav item 4</Typography>
             </Stack>
-          </Item>
+          </ItemFlex>
         </Grid>
 
         <Grid size={{xs: 10}}>
-          <Item>
+          <ItemBlock>
             <section>
               <Routes>
                 <Route path="/" element={<Home mainStyle={mainStyle} />} />
@@ -114,13 +123,13 @@ export default function LayoutGrids() {
                 <Route path="/third" element={<Third />} />
               </Routes>
             </section>
-          </Item>
+          </ItemBlock>
         </Grid>
 
         <Grid size={{xs: 12}}>
-          <Item sx={headerFooterStyle}>
+          <ItemFlex sx={headerFooterStyle}>
             <Typography sx={mainStyle}>Footer</Typography>
-          </Item>
+          </ItemFlex>
         </Grid>
       </Grid>
     </>

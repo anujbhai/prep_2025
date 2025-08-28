@@ -3,7 +3,13 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
+# EF Core Database Files
 GameStore.db
+*.db-shm
+*.db-wal
+*.mdf
+*.ldf
+
 # dotenv files
 .env
 

@@ -1,9 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 namespace GameStore.Api.Dtos;
 
 public record class CreateGameDto
 (
+    // int Id,
     [Required][StringLength(50)] string Name,
     int GenreId,
     [Range(1, 100)] decimal Price,

@@ -61,6 +61,7 @@ public static class GamesEndpoints
 
             Game game = new()
             {
+                // Id = newGame.Id,
                 Name = newGame.Name,
                 Genre = dbContext.Genres.Find(newGame.GenreId),
                 GenreId = newGame.GenreId,
@@ -71,7 +72,15 @@ public static class GamesEndpoints
             dbContext.Games.Add(game);
             dbContext.SaveChanges();
 
-            return Results.CreatedAtRoute(GetGameEndpointName, new { id = 0 }, game);
+            GameDto gameDto = new(
+                game.Id,
+                game.Name,
+                game.Genre!.Name,
+                game.Price,
+                game.ReleaseDate
+            );
+
+            return Results.CreatedAtRoute(GetGameEndpointName, new { id = game.Id }, gameDto);
         });
 
         // PUT /games

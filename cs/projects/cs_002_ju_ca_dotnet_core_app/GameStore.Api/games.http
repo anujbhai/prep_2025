@@ -1,7 +1,7 @@
 GET http://localhost:5076/games
 
 ###
-GET http://localhost:5076/games/4
+GET http://localhost:5076/games/1
 
 ###
 POST http://localhost:5076/games
@@ -15,16 +15,16 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:5076/games/1
+PUT http://localhost:5076/games/2
 Content-Type: application/json
 
 {
     "id": 2,
-    "name": "Double Dragon",
-    "genreId": 1,
-    "price": 9.99,
-    "releaseDate": "1987-06-01"
+    "name": "Minecraft",
+    "genreId": 5,
+    "price": 49.99,
+    "releaseDate": "2015-06-01"
 }
 
 ###
-DELETE http://localhost:5076/games/4
+DELETE http://localhost:5076/games/2

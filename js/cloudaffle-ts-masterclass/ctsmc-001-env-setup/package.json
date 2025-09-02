@@ -1,0 +1,16 @@
+{
+  "name": "ctsmc-001-env-setup",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "Anuj Upadhyay",
+  "type": "commonjs",
+  "main": "index.ts",
+  "types": "./index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}

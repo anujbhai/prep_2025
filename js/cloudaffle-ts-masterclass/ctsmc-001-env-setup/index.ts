@@ -136,3 +136,18 @@
 //     return user as User;
 // }
 // const fetched_user = fetch_user();
+
+/* Practice */
+let city = "New York"; // string
+let population = 8400000; // number
+const age = 32; // literal value 32 since we are using const
+let old_age = 79 as const; // literal value 79 since we are using type casting as const
+let new_age = old_age; // 79
+let data = new Map(); // Map<any, any>
+let score = [90, 86, 100]; // number[]
+type Primitive = string | number | boolean; // union
+type CustomName = "John" extends string ? string : "John"; // string
+type CustomAge = typeof new_age extends number ? 79 : number; // 79
+type CustomData = typeof data extends Object ? true : false; // true
+type CustomScore = typeof data extends never ? {} : []; // []
+

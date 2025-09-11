@@ -109,4 +109,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //     return user as User;
 // }
 // const fetched_user = fetch_user();
+/* Practice */
+let city = "New York"; // string
+let population = 8400000; // number
+const age = 32; // literal value 32 since we are using const
+let old_age = 79; // literal value 79 since we are using type casting as const
+let new_age = old_age; // 79
+let data = new Map(); // Map<any, any>
+let score = [90, 86, 100]; // number[]
 //# sourceMappingURL=index.js.map

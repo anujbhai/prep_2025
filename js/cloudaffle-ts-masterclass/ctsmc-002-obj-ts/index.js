@@ -1,17 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-let post = {
-    title: "This is a blog post",
-    content: "This is the content of the post.",
-    date: new Date(),
-};
-let post2 = {
-    title: "This is another blog post",
-    content: "This is the content of the post.",
-    date: new Date(),
-};
-console.log("post title:", post.title);
-console.log("post content:", post.content);
-console.log("post date:", post.date.toLocaleString());
-console.log("post date:", post2.title);
+let a = [1, 2, 3];
+let b = ["a", "b", "c"];
+let c = ["a", 1, true];
+let airplane = [
+    {
+        model: "Airbus A380",
+        flight_number: "A2201",
+        time_of_departure: new Date(),
+        time_of_arrival: new Date(),
+        caterer: {
+            name: "John Doe",
+            address: "484, Some Street, New York",
+            phone: "7867856751",
+        },
+        seats: {
+            A1: "John Doe",
+            A2: "Jane Doe",
+            A3: "James Doe",
+        },
+    },
+];
 //# sourceMappingURL=index.js.map

@@ -1,67 +1,6 @@
-/* Objects and Union Types */
-// type Dog = {
-//     name: string;
-//     barks: boolean;
-//     wags_tail: boolean;
-// };
-
-// type Cat = {
-//     name: string;
-//     purrs: boolean;
-// };
-
-// type DogAndCatUnion = Dog | Cat;
-
-// let dog: DogAndCatUnion = {
-//     name: "Buddy",
-//     barks: true,
-//     wags_tail: true,
-// };
-// let cat: DogAndCatUnion = {
-//     name: "Bella",
-//     purrs: true,
-// };
-// let hybrid_animal: DogAndCatUnion = {
-//     name: "Brutus",
-//     barks: true,
-//     wags_tail: true,
-//     purrs: true,
-// };
-
-/* Discriminating union */
-// type network_loading_state = {
-//     state: "loading";
-// };
-
-// type network_failed_state = {
-//     state: "failed";
-//     code: number;
-// };
-
-// type network_success_state = {
-//     state: "success";
-//     response: {
-//         title: string;
-//         duration: number;
-//         summary: string;
-//     };
-// };
-
-// type network_state =
-//     network_loading_state
-//     | network_failed_state
-//     | network_success_state;
-
-// function logger(state: network_state) {
-//     switch(state.state) {
-//         case "loading":
-//             return "Loading ..";
-//         case "failed":
-//             return `Error ${state.code}`;
-//         case "success":
-//             return `Downloading ${state.response.title} response`;
-//     }
-// }
+let a: number[] = [1, 2, 3]; 
+let b: Array<string> = ["a", "b", "c"];
+let c: (string | number | boolean) = ["a", 1, true];
 
 /* practice */
 type Caterer = {
@@ -80,7 +19,10 @@ type AirPlane = {
     caterer: Caterer,
     seats: Seats;
 };
-let airplane: AirPlane = {
+type AirPlanes = AirPlane[];
+
+let airplane: AirPlanes = [
+  {
     model: "Airbus A380",
     flight_number: "A2201",
     time_of_departure: new Date(),
@@ -95,4 +37,5 @@ let airplane: AirPlane = {
         A2: "Jane Doe",
         A3: "James Doe",
     },
-};
+  },
+];

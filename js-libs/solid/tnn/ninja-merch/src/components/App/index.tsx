@@ -6,9 +6,23 @@ import banner from "../../assets/bg_banner.jpg";
 import Home from "../../pages/Home";
 import Cart from "../../pages/Cart";
 import Product from "../../pages/Product";
+import { useCartContext } from "../../context/CartContext";
 
 const App: Component = () => {
   const [darkTheme, setDarkTheme] = createSignal<boolean>(false);
+  const context = useCartContext();
+
+  if (!context) {
+    throw new Error("useContext must be used within a CartContextProvider");
+  }
+
+  const { items } = context;
+
+  const quantity = () => {
+    return items.reduce((acc, current) => {
+      return acc + current.quantity;
+    }, 0);
+  };
 
   const handleToggleTheme = () => {
     setDarkTheme(!darkTheme());
@@ -33,7 +47,7 @@ const App: Component = () => {
         <h1>Ninja Merch</h1>
 
         <a href="/">Home</a>
-        <a href="/cart">Cart</a>
+        <a href="/cart">Cart ({ quantity() })</a>
       </header>
 
       <figure class="rounded-md">

@@ -1,36 +1,45 @@
-import { useParams } from "@solidjs/router"
-import { createResource, Show } from "solid-js"
+import { useParams } from "@solidjs/router";
+import { createResource, createSignal, Show } from "solid-js";
 
 import { CartItem, useCartContext } from "../../context/CartContext";
 
 const fetchProduct = async (id: string) => {
-  const res = await fetch(`http://localhost:4000/products/${id}`)
+  const res = await fetch(`http://localhost:4000/products/${id}`);
 
   return res.json();
-}
+};
 
 const Product = () => {
-  const params = useParams()
-  const [product] = createResource(params.id, fetchProduct)
-  const context = useCartContext()
+  const params = useParams();
+  const [product] = createResource(params.id, fetchProduct);
+  const context = useCartContext();
 
   if (!context) {
     throw new Error("useContext must be used within a CartContextProvider");
   }
 
-  const { items, setItems } = context
+  const { items, setItems } = context;
+
+  const [adding, setAdding] = createSignal(false);
 
   const addProduct = () => {
-    const exists = items.find((p: CartItem) => p.id === product().id)
+    setAdding(true);
+    setTimeout(() => setAdding(false), 2000);
+
+    const exists = items.find((p: CartItem) => p.id === product().id);
 
     if (exists) {
-      setItems((p: CartItem) => p.id === product().id, "quantity", (q: number) => q + 1)
+      setItems(
+        (p: CartItem) => p.id === product().id,
+        "quantity",
+        (q: number) => q + 1,
+      );
     }
 
     if (!exists) {
-      setItems([...items, {...product(), quantity: 1}])
+      setItems([...items, { ...product(), quantity: 1 }]);
     }
-  }
+  };
 
   return (
     <div class="my-7">
@@ -47,13 +56,24 @@ const Product = () => {
 
             <p class="my-7 text-2xl">Only ${product().price}</p>
 
-            <button class="btn" onClick={addProduct}>Add to Cart</button>
+            <button
+              class="btn cursor-pointer"
+              onClick={addProduct}
+              disabled={adding()}
+            >
+              Add to Cart
+            </button>
+
+            <Show when={adding()}>
+              <div class="m-2 p-2 border-amber-500 border-2 rounded-md inline-block">
+                {product().title} was added to the cart
+              </div>
+            </Show>
           </div>
         </div>
       </Show>
     </div>
-  )
-}
+  );
+};
 
-export default Product
-
+export default Product;

@@ -12,6 +12,12 @@ const Cart = () => {
 
   const { items } = context;
 
+  const total = () => {
+    return items.reduce((acc, p) => {
+      return acc + p.price * p.quantity;
+    }, 0);
+  };
+
   return (
     <div class="max-w-md my-8 mx-auto">
       <Card flat={false} rounded={true}>
@@ -23,6 +29,8 @@ const Cart = () => {
             </p>
           )}
         </For>
+
+        <p class="mt-8 pt-4 border-t-2 font-bold">Grand total: ${ total() }</p>
       </Card>
     </div>
   );

@@ -3,6 +3,7 @@ import { createResource, createSignal, Show } from "solid-js";
 
 import { CartItem, useCartContext } from "../../context/CartContext";
 
+
 const fetchProduct = async (id: string) => {
   const res = await fetch(`http://localhost:4000/products/${id}`);
 
@@ -19,6 +20,8 @@ const Product = () => {
   }
 
   const { items, setItems } = context;
+
+  const cartItem = () => items.find((p: CartItem) => p.id === product()?.id);
 
   const [adding, setAdding] = createSignal(false);
 
@@ -41,6 +44,26 @@ const Product = () => {
     }
   };
 
+  const increase = () => {
+    if (!product()) return;
+    setItems((p: CartItem) => p.id === product().id, "quantity", (q: number) => q + 1);
+  };
+
+  const decrease = () => {
+    if (!product()) return;
+    const current = cartItem();
+    if (!current) return;
+    if (current.quantity <= 1) {
+      setItems(items.filter((p: CartItem) => p.id !== current.id));
+      return;
+    }
+    setItems(
+      (p: CartItem) => p.id === product().id,
+      "quantity",
+      (q: number) => q - 1,
+    );
+  };
+
   return (
     <div class="my-7">
       <Show when={product()} fallback={<p>Loading...</p>}>
@@ -55,6 +78,20 @@ const Product = () => {
             <p>{product().description}</p>
 
             <p class="my-7 text-2xl">Only ${product().price}</p>
+
+            <Show when={cartItem()}>
+              <div class="flex items-center gap-3 mt-3">
+                <button class="btn cursor-pointer" onClick={decrease}>
+                  -
+                </button>
+                <span class="min-w-8 text-center">
+                  {cartItem()?.quantity}
+                </span>
+                <button class="btn cursor-pointer" onClick={increase}>
+                  +
+                </button>
+              </div>
+            </Show>
 
             <button
               class="btn cursor-pointer"

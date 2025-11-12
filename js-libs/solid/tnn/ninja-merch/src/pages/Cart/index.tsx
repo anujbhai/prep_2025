@@ -10,7 +10,25 @@ const Cart = () => {
     throw new Error("useContext must be used within a CartContextProvider");
   }
 
-  const { items } = context;
+  const { items, setItems } = context;
+
+  const increase = (id: number) => {
+    setItems((p) => p.id === id, "quantity", (q: number) => q + 1);
+  };
+
+  const decrease = (id: number) => {
+    const found = items.find((p) => p.id === id);
+    if (!found) return;
+    if (found.quantity <= 1) {
+      setItems(items.filter((p) => p.id !== id));
+      return;
+    }
+    setItems((p) => p.id === id, "quantity", (q: number) => q - 1);
+  };
+
+  const removeItem = (id: number) => {
+    setItems(items.filter((p) => p.id !== id));
+  };
 
   const total = () => {
     return items.reduce((acc, p) => {
@@ -24,13 +42,27 @@ const Cart = () => {
         <h2>Your Shopping Cart</h2>
         <For each={items}>
           {(item) => (
-            <p class="my-3">
-              {item.title} - ${item.price} x {item.quantity}
-            </p>
+            <div class="my-3 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+              <span>
+                  {item.title} - ${item.price}
+                </span>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <button class="btn cursor-pointer" onClick={[decrease, item.id]}>-</button>
+                  <span class="min-w-8 text-center">{item.quantity}</span>
+                <button class="btn cursor-pointer" onClick={[increase, item.id]}>+</button>
+
+                <button class="cursor-pointer" onClick={[removeItem, item.id]} aria-label="Remove item">
+                  <span class="material-symbols-outlined">delete</span>
+                </button>
+              </div>
+            </div>
           )}
         </For>
 
-        <p class="mt-8 pt-4 border-t-2 font-bold">Grand total: ${ total() }</p>
+        <p class="mt-8 pt-4 border-t-2 font-bold">Grand total: ${ total().toFixed(2) }</p>
       </Card>
     </div>
   );

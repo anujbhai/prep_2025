@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaScale - Powerful Business Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">SaaScale</div>
+                <button class="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact" class="btn-primary">Get Started</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title fade-in">Scale Your Business with SaaScale</h1>
+                <p class="hero-subtitle fade-in-delay">The all-in-one platform that grows with your team. Start free, upgrade as you scale.</p>
+                <div class="hero-buttons fade-in-delay-2">
+                    <a href="#pricing" class="btn-primary btn-large">Start Free Trial</a>
+                    <a href="#features" class="btn-secondary btn-large">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose SaaScale?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Built for speed with cutting-edge technology that keeps your team productive.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <h3>Secure & Reliable</h3>
+                    <p>Enterprise-grade security with 99.9% uptime guarantee for peace of mind.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="20" x2="18" y2="10"/>
+                            <line x1="12" y1="20" x2="12" y2="4"/>
+                            <line x1="6" y1="20" x2="6" y2="14"/>
+                        </svg>
+                    </div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Real-time insights and reports to help you make data-driven decisions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
+                        </svg>
+                    </div>
+                    <h3>Easy Integrations</h3>
+                    <p>Connect with your favorite tools through our extensive API and integrations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Team Collaboration</h3>
+                    <p>Work together seamlessly with built-in collaboration tools and workflows.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <line x1="12" y1="18" x2="12" y2="18"/>
+                        </svg>
+                    </div>
+                    <h3>Mobile Ready</h3>
+                    <p>Access your workspace from anywhere with our responsive mobile interface.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Calculator Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Calculate Your Perfect Plan</h2>
+            <p class="section-subtitle">Adjust the sliders to see pricing based on your needs</p>
+            
+            <div class="calculator-container">
+                <div class="calculator-card">
+                    <div class="calculator-layout">
+                        <div class="calculator-controls">
+                            <div class="control-group">
+                                <label for="users">Number of Users</label>
+                                <div class="slider-wrapper">
+                                    <input type="range" id="users" min="1" max="1000" value="10" class="slider">
+                                    <span class="slider-value" id="users-value">10</span>
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="storage">Storage (GB)</label>
+                                <div class="slider-wrapper">
+                                    <input type="range" id="storage" min="10" max="1000" value="50" step="10" class="slider">
+                                    <span class="slider-value" id="storage-value">50 GB</span>
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="projects">Projects</label>
+                                <div class="slider-wrapper">
+                                    <input type="range" id="projects" min="1" max="100" value="5" class="slider">
+                                    <span class="slider-value" id="projects-value">5</span>
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="api-calls">API Calls/Month (thousands)</label>
+                                <div class="slider-wrapper">
+                                    <input type="range" id="api-calls" min="10" max="1000" value="100" step="10" class="slider">
+                                    <span class="slider-value" id="api-calls-value">100k</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-display">
+                            <div class="billing-toggle">
+                                <span class="toggle-label">Monthly</span>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="billing-toggle">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span class="toggle-label">Yearly <span class="discount-badge">Save 20%</span></span>
+                            </div>
+                            <div class="price-label" id="price-label">Estimated Monthly Cost</div>
+                            <div class="price-amount" id="total-price">$49</div>
+                            <div class="monthly-effective" id="monthly-effective" style="display: none;"></div>
+                            <div class="price-breakdown" id="price-breakdown">
+                                <div>Base: $29</div>
+                                <div>Users: $20</div>
+                                <div>Storage: $0</div>
+                                <div>Projects: $0</div>
+                                <div>API: $0</div>
+                            </div>
+                            <a href="#contact" class="btn-primary btn-large">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"SaaScale has transformed how our team works. The pricing is fair and the features are exactly what we needed."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah Mitchell</div>
+                            <div class="author-role">CEO, TechStart Inc.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The calculator helped us find the perfect plan. We've saved 30% compared to our previous solution!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div class="author-info">
+                            <div class="author-name">James Davis</div>
+                            <div class="author-role">CTO, Digital Solutions</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Outstanding support and a platform that scales with us. Couldn't be happier with our choice."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EM</div>
+                        <div class="author-info">
+                            <div class="author-name">Emily Rodriguez</div>
+                            <div class="author-role">Operations Manager, Growth Co.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SaaScale</h3>
+                    <p>Empowering businesses with powerful, scalable solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SaaScale. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
